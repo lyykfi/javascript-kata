@@ -4,6 +4,7 @@ import { fetchMagazineSuccess } from "store/actions/magazines";
 
 const INIT_STATE: MagazinesReducer = {
 	magazineList: null,
+	allMagazines: null,
 }
 
 const magazinesReducer = createReducer<MagazinesReducer>(INIT_STATE, {
@@ -11,6 +12,7 @@ const magazinesReducer = createReducer<MagazinesReducer>(INIT_STATE, {
 		return {
 			...state,
 			magazineList: action.payload,
+			allMagazines: action.payload,
 		}
 	}
 })

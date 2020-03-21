@@ -22,7 +22,8 @@ const Magazines: React.FC<Props> = (props) => {
 						{magazine.authors}
 					</Typography.Title>
 					<p>
-						{magazine.publishedAt} {magazine.isbn}
+						{magazine.isbn}<br />
+						{magazine.publishedAt} 
 					</p>
 				</Card>
 			})}
