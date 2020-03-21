@@ -1,7 +1,9 @@
 import { createAction, Dispatch } from "@reduxjs/toolkit";
 import Papa from "papaparse";
+import { Book } from "models/book";
 
-export const fetchBooksSuccess = createAction('FETCH_BOOKS_SUCCESS');
+export const fetchBooksSuccess = createAction<Book[]>(
+	'FETCH_BOOKS_SUCCESS');
 
 export function fetchBooks() {
 	return async (dispatch: Dispatch) => {

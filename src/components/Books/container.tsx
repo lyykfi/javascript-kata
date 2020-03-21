@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBookList } from "store/selectors/books";
 import { fetchBooks } from "store/actions/books";
+import Books from ".";
 
 const BooksContainer = () => {
 	const dispatch = useDispatch();
@@ -12,7 +13,8 @@ const BooksContainer = () => {
 			dispatch(fetchBooks());
 		}
 	}, [bookList]);
-	return <div>BooksContainer</div>;
+
+	return <Books bookList={bookList} />;
 };
   
 export default BooksContainer;
