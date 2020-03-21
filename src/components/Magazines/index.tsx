@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Card, Tag } from 'antd';
 import { Magazine } from 'models/magazine';
+import AuthorContainer from "components/Author/container";
 
 interface Props {
 	magazineList: Magazine[];
@@ -20,7 +21,9 @@ const Magazines: React.FC<Props> = (props) => {
 
 					<p>
 						{magazine.authors.map((author) => {
-							return <Tag key={author} color="magenta">{author}</Tag>;
+							return <Tag key={author} color="magenta">
+								<AuthorContainer email={author} />
+							</Tag>;
 						})}
 					</p>
 					<p>

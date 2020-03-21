@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Card, Tag } from 'antd';
 import { Book } from "models/book";
+import AuthorContainer from "components/Author/container";
 
 interface Props {
 	bookList: Book[];
@@ -20,7 +21,9 @@ const Books: React.FC<Props> = (props) => {
 
 					<p>
 						{book.authors.map((author) => {
-							return <Tag key={author} color="magenta">{author}</Tag>;
+							return <Tag key={author} color="magenta">
+								<AuthorContainer email={author} />
+							</Tag>;
 						})}
 					</p>
 
