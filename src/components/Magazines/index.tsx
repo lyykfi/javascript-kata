@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Card } from 'antd';
+import { Typography, Card, Tag } from 'antd';
 import { Magazine } from 'models/magazine';
 
 interface Props {
@@ -18,9 +18,11 @@ const Magazines: React.FC<Props> = (props) => {
 					key={index}
 					title={magazine.title}>
 
-					<Typography.Title level={3}>
-						{magazine.authors}
-					</Typography.Title>
+					<p>
+						{magazine.authors.map((author) => {
+							return <Tag key={author} color="magenta">{author}</Tag>;
+						})}
+					</p>
 					<p>
 						{magazine.isbn}<br />
 						{magazine.publishedAt} 

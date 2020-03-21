@@ -2,30 +2,50 @@ import { createReducer } from "@reduxjs/toolkit"
 import { BooksReducer } from "./types";
 import { fetchBooksSuccess } from "store/actions/books";
 import { findByISBN } from "store/actions/find";
+import { sortByTitle, findItems } from "utils/sort";
+import { findByAuthor } from "store/actions/author";
 
 const INIT_STATE: BooksReducer = {
 	booksList: null,
 	allBooks: null,
+	authorEmail: null,
+	ISBN: null,
 }
 
 const booksReducer = createReducer<BooksReducer>(INIT_STATE, {
 	[fetchBooksSuccess.type]: (state, action) => {
 		return {
 			...state,
-			booksList: action.payload,
+			booksList: action.payload.sort(sortByTitle),
 			allBooks: action.payload,
 		}
 	},
-	[findByISBN.type]: (state, action) => {
-		const isbn = action.payload;
-		console.log(state.allBooks);
-		const booksList = state.allBooks?.filter((book) => {
-			return book.isbn?.includes(isbn);
-		});
-		 console.log(booksList);
-		return {
+	[findByAuthor.type]: (state, action) => {
+		const newState = {
 			...state,
-			booksList: booksList,
+			authorEmail: action.payload,
+		}
+
+		return {
+			...newState,
+			booksList: findItems(
+				newState.allBooks,
+				newState.ISBN,
+				newState.authorEmail),
+		}
+	},
+	[findByISBN.type]: (state, action) => {
+		const newState = {
+			...state,
+			ISBN: action.payload,
+		}
+
+		return {
+			...newState,
+			booksList: findItems(
+				newState.allBooks,
+				newState.ISBN,
+				newState.authorEmail),
 		}
 	},
 })

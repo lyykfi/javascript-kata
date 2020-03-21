@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Card } from 'antd';
+import { Typography, Card, Tag } from 'antd';
 import { Book } from "models/book";
 
 interface Props {
@@ -18,10 +18,13 @@ const Books: React.FC<Props> = (props) => {
 					key={index}
 					title={book.title}>
 
-					<Typography.Title level={3}>
-						{book.authors}
-					</Typography.Title>
-					{book.description}
+					<p>
+						{book.authors.map((author) => {
+							return <Tag key={author} color="magenta">{author}</Tag>;
+						})}
+					</p>
+
+					<p>{book.description}</p>
 					<p>
 						{book.isbn}
 					</p>

@@ -7,3 +7,11 @@
 .container .item {
 	width: 45%;
 }
+
+.container .item .ant-card {
+	margin-bottom: 20px;
+}
+
+.ant-select {
+	width: 100%;
+}

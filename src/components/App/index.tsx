@@ -3,13 +3,15 @@ import { Provider } from "react-redux";
 import store from "store";
 import BooksContainer from "components/Books/container";
 import MagazinesContainer from "components/Magazines/container";
+import IsbnFinder from "components/IsbnFinder";
+import AuthorSelectContainer from "components/AuthorSelect/container";
 
 import "./styles.css";
-import IsbnFinder from "components/IsbnFinder";
 
 const App = () => {
 	return <Provider store={store}>
 		<IsbnFinder />
+		<AuthorSelectContainer />
 
 		<div className="container">
 			<div className="item">
