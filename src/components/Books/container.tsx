@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getBookList } from "store/selectors/books";
 import { fetchBooks } from "store/actions/books";
 import Books from ".";
+import { Spin } from "antd";
 
 const BooksContainer = () => {
 	const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const BooksContainer = () => {
 		}
 	}, [bookList]);
 
-	return <Books bookList={bookList} />;
+	return bookList ? <Books bookList={bookList} /> : <Spin size="large" />;
 };
   
 export default BooksContainer;

@@ -13,6 +13,7 @@ const Magazines: React.FC<Props> = (props) => {
 	return <>
 		<Typography.Title level={2}>Magazines</Typography.Title>
 		
+		{magazineList.length ? 
 		<>
 			{(magazineList ?? []).map((magazine, index) => {
 				return <Card
@@ -32,7 +33,7 @@ const Magazines: React.FC<Props> = (props) => {
 					</p>
 				</Card>
 			})}
-		</>
+		</> : 'Magazines not found'}
 	</>;
 };
   

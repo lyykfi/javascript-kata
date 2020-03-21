@@ -10,7 +10,7 @@ interface Props {
 const AuthorContainer: React.FC<Props> = (props) => {
 	const { email } = props;
 	const authorList = useSelector(getAuthorList);
-	const author = authorList.find((item) => item.email === email);
+	const author = authorList?.find((item) => item.email === email);
 
 	return author ? <Author name={author.firstname} sirname={author.lastname} /> : <></>;
 };

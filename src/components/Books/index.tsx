@@ -13,6 +13,7 @@ const Books: React.FC<Props> = (props) => {
 	return <>
 		<Typography.Title level={2}>Books</Typography.Title>
 		
+		{bookList.length ? 
 		<>
 			{(bookList ?? []).map((book, index) => {
 				return <Card
@@ -33,7 +34,7 @@ const Books: React.FC<Props> = (props) => {
 					</p>
 				</Card>
 			})}
-		</>
+		</> : 'Books not found.'}
 	</>;
 };
   

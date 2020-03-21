@@ -28,7 +28,7 @@ const magazinesReducer = createReducer<MagazinesReducer>(INIT_STATE, {
 
 		return {
 			...newState,
-			booksList: findItems(
+			magazineList: findItems(
 				newState.allMagazines,
 				newState.ISBN,
 				newState.authorEmail),
@@ -42,7 +42,7 @@ const magazinesReducer = createReducer<MagazinesReducer>(INIT_STATE, {
 
 		return {
 			...newState,
-			booksList: findItems(
+			magazineList: findItems(
 				newState.allMagazines,
 				newState.ISBN,
 				newState.authorEmail),

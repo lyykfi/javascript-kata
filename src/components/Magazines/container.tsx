@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getMagazineList } from "store/selectors/magazines";
 import { fetchMagazines } from "store/actions/magazines";
 import Magazines from ".";
+import { Spin } from "antd";
 
 const MagazinesContainer = () => {
 	const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const MagazinesContainer = () => {
 		}
 	}, [magazinesList]);
 
-	return <Magazines magazineList={magazinesList} />;
+	return magazinesList ? <Magazines magazineList={magazinesList} /> : <Spin size="large" />;
 };
   
 export default MagazinesContainer;
